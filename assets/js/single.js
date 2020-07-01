@@ -22,6 +22,28 @@ var displayIssues = function(issues) {
         issueEl.setAttribute("target", "_blank");
     }
     
+    // create span to hold issue title
+    var titleEl = document.createElement("span");
+    titleEl.textContent = issues[i].title;
+
+    // append to container
+    issueEl.appendChild(titleEL);
+
+    // create a type elemtn
+    var typeEl = document.createElement("span");
+
+    // check if issue is an actual issue or a pull request
+    if (issues[i].pull_request) {
+        typeEl.textContent = "(Pull request)";
+    } else {
+        typeEl.textContent = "(Issue)";
+    }
+
+    // append to container
+    issueEl.appendChild(typeEl);
+
+
+    
 
 
 };
