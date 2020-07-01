@@ -1,3 +1,4 @@
+var issuesContainerEl = document.querySelector("#issues-container");
 var getRepoIssues = function(repo) {
     var apiUrl = "https://api.github.com/repos/" + repo + "/issues?direction=asc";
     fetch(apiUrl).then(function(response) {
@@ -20,6 +21,8 @@ var displayIssues = function(issues) {
         issueEl.classList = "list-item flex-row justify-space-between align-center";
         issueEl.setAttribute("href", issues[i].html_url);
         issueEl.setAttribute("target", "_blank");
+        issuesContainerEl.appendChild(issueEl);
+
     }
     
     // create span to hold issue title
