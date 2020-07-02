@@ -20,6 +20,10 @@ var getRepoIssues = function (repo) {
   });
 };
 var displayIssues = function (issues) {
+  if (issues.length === 0) {
+      issuesContainerEl.textContent = "This repo has no open issues!";
+      return;
+  }
   console.log(issues);
   for (var i = 0; i < issues.length; i++) {
     // create a link element to take users to the issue on github
