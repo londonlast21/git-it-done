@@ -1,4 +1,14 @@
-var languageButtonsEl =
+var languageButtonsEl =document.querySelector("#language-buttons");
+var buttonClickHandler = function(event) {
+    var language= event.target.getAttribute("data-language");
+    if (language) {
+        getFeaturedRepos(language);
+
+        // clear old content
+        repoContainerEl.textContent = "";
+
+    }
+}
 var getFeaturedRepos = function(language) {
     var apiUrl = "https://api.github.com/search/repositories?q=" + language + "+is:featured&sort=help-wanted-issues";
     
@@ -100,4 +110,4 @@ var displayRepos = function(repos, searchTerm) {
 };
 
 userFormEl.addEventListener("submit", formSubmitHandler);
-
+languageButtonsEl.addEventListener("click", buttonClickHandler);
